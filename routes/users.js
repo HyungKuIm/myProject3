@@ -18,4 +18,26 @@ router.route('/')
         }
     });
 
+router.route('/add')
+    .get((req, res) => {
+        res.render('users/add');
+    })
+    .post(async(req, res, next) => {
+        try {
+            const name = req.body.name;
+            const age = req.body.age;
+            await User.create({
+                name: name,
+                age: age
+            });
+            res.redirect('/users');
+        } catch (err) {
+            console.error(err);
+            next(err);
+        }
+
+
+    });
+
+
 export default router;
