@@ -14,7 +14,7 @@
     <hr/>
     <form action="/users/delete" method="post">
         <a href="/users/edit/<%= content.id %>">수정</a>
-        <input type="hidden" name="_id" value="<%= content._id%>">
+        <input type="hidden" name="id" value="<%= content._id%>">
         <input type="submit" value="삭제">
     </form>
 

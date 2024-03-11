@@ -87,4 +87,16 @@ router.route('/edit/:id')
        }
     });
 
+router.post('/delete', async (req, res, next) => {
+   try {
+       console.log(req.body.id);
+       await User.deleteOne({_id: req.body.id});
+       res.redirect('/users');
+   } catch (err) {
+       console.error(err);
+       next(err);
+   }
+});
+
+
 export default router;
