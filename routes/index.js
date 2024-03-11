@@ -16,12 +16,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/memo', function(req, res) {
-    res.send(`
-        <form method="post">
-            <textarea name="memo">메모 입력</textarea>
-            <br/> <input type="submit" value="송신" />
-        </form>
-    `);
+    res.render('memo');
 });
 
 router.post('/memo', function(req, res) {
