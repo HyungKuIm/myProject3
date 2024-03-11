@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>user detail</title>
+</head>
+<body>
+    이름: <%= content.name %> <br/>
+    나이: <%= content.age %> <br/>
+
+    <hr/>
+    <form action="/users/delete" method="post">
+        <a href="/users/edit/<%= content.id %>">수정</a>
+        <input type="hidden" name="_id" value="<%= content._id%>">
+        <input type="submit" value="삭제">
+    </form>
+
+</body>
+</html>

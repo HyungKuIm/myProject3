@@ -40,4 +40,51 @@ router.route('/add')
     });
 
 
+router.get('/:id', async (req, res, next) => {
+    try {
+        const user = await User.findById(req.params.id);
+        if (!user) {
+            return res.send('<h1>사용자를 찾을 수 없습니다</h1>');
+        }
+        const data = {content: user};
+        res.render("users/show", data);
+
+
+    } catch (err) {
+        console.error(err);
+        next(err);
+    }
+});
+
+router.route('/edit/:id')
+    .get(async (req, res, next) => {
+        try {
+            const user = await User.findById(req.params.id);
+            if (!user) {
+                return res.send('<h1>사용자를 찾을 수 없습니다</h1>');
+            }
+            const data = {content: user};
+            res.render("users/edit", data);
+
+
+        } catch (err) {
+            console.error(err);
+            next(err);
+        }
+    })
+    .post(async (req, res, next) => {
+       try {
+           await User.updateOne({
+               _id: req.params.id,
+           }, {
+               name: req.body.name,
+               age: req.body.age,
+           });
+           res.redirect('/users');
+       } catch (err) {
+           console.error(err);
+           next(err);
+       }
+    });
+
 export default router;
