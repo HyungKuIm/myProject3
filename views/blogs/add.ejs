@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>blog add</title>
+</head>
+<body>
+    <h1>Blog Add</h1>
+    <hr />
+    <div>
+        <form action="/admin/blogs/add" method="post" enctype="multipart/form-data">
+            <div>
+                <label for="subject">제목:</label>
+                <input type="text" name="subject" id="subject" required />
+            </div>
+            <div>
+                <label for="blogBody">내용:</label>
+                <textarea name="blogBody" id="blogBody" cols="30" rows="10" required></textarea>
+            </div>
+            <div>
+                <label for="thumbnailImg">썸네일 이미지:</label>
+                <input type="file" id="thumbnailImg" name="thumbnailImg" />
+            </div>
+            <div>
+                <button type="submit">추가</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

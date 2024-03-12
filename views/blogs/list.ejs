@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>blog list</title>
+</head>
+<body>
+    <div>
+        <a href="/admin/blogs/add">블로그 추가</a>
+        <% content.forEach(function(blog) { %>
+        <div>
+            <div>
+                <img src="data:image/<%=blog.thumbnailImg.contentType%>;base64,<%=blog.thumbnailImg.data.toString('base64')%>" alt="" />
+                <div>
+                    <h5><%= blog.subject%></h5>
+                    <p><%= blog.blogBody%></p>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</body>
+</html>

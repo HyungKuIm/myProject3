@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import indexRouter from './routes/index.js';
 import userRouter from './routes/users.js';
 import userRestRouter from './routes/userRest.js';
+import blogRouter from './routes/blogs.js';
 
 
 mongoose.connect('mongodb://127.0.0.1/myProject');
@@ -29,6 +30,7 @@ app.set('view engine', 'ejs');
 
 app.use('/', indexRouter);
 app.use('/admin/users', userRouter);
+app.use('/admin/blogs', blogRouter);
 app.use('/api/users', userRestRouter);
 
 
