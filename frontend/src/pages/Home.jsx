@@ -1,8 +1,11 @@
 function Home() {
     return (
-        <div>
-            <h1>Home</h1>
-        </div>
+        <main className="mainSection">
+            <section>
+                <h1>Home</h1>
+            </section>
+
+        </main>
     );
 }
 

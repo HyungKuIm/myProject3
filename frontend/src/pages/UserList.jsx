@@ -27,16 +27,20 @@ function UserList() {
     },[requestFetchUsers]);
 
     return (
-        <div>
-            <h1>유저 리스트</h1>
-            <ul>
-                {userlist.map((list)=>(
-                    <li key={list._id}>
-                        {list.name} : {list.age}세
-                    </li>
-                ))}
-            </ul>
-        </div>
+        <main className="userListSection">
+            <section>
+
+
+                <h1>유저 리스트</h1>
+                <ul>
+                    {userlist.map((list)=>(
+                        <li key={list._id}>
+                            {list.name} : {list.age}세
+                        </li>
+                    ))}
+                </ul>
+            </section>
+        </main>
     )
 }
 
