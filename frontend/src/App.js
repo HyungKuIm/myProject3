@@ -1,10 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
-import UserList from "./pages/UserList";
+import Router from "./pages/Router";
+
 function App() {
   return (
-    <div>
-      <UserList />
+    <div style={{width: "100%", display: "flex", flexDirection:"column", alignItems: "center"}}>
+      <Router />
     </div>
   );
 }
