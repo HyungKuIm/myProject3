@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import indexRouter from './routes/index.js';
 import userRouter from './routes/users.js';
+import userRestRouter from './routes/userRest.js';
 
 
 mongoose.connect('mongodb://127.0.0.1/myProject');
@@ -27,7 +28,8 @@ app.set('view engine', 'ejs');
 
 
 app.use('/', indexRouter);
-app.use('/users', userRouter);
+app.use('/admin/users', userRouter);
+app.use('/api/users', userRestRouter);
 
 
 app.listen(port, function onStart(err) {
