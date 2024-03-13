@@ -30,7 +30,7 @@ router.route('/add')
                 name: name,
                 age: age
             });
-            res.redirect('/users');
+            res.redirect('/admin/users');
         } catch (err) {
             console.error(err);
             next(err);
@@ -80,7 +80,7 @@ router.route('/edit/:id')
                name: req.body.name,
                age: req.body.age,
            });
-           res.redirect('/users');
+           res.redirect('/admin/users');
        } catch (err) {
            console.error(err);
            next(err);
@@ -91,7 +91,7 @@ router.post('/delete', async (req, res, next) => {
    try {
        console.log(req.body.id);
        await User.deleteOne({_id: req.body.id});
-       res.redirect('/users');
+       res.redirect('/admin/users');
    } catch (err) {
        console.error(err);
        next(err);

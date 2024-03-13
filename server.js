@@ -6,6 +6,10 @@ import indexRouter from './routes/index.js';
 import userRouter from './routes/users.js';
 import userRestRouter from './routes/userRest.js';
 import blogRouter from './routes/blogs.js';
+import loginRouter from './routes/login.js';
+
+import session from "express-session";
+import MongoStore from "connect-mongo";
 
 
 mongoose.connect('mongodb://127.0.0.1/myProject');
@@ -22,15 +26,28 @@ const port = "7080";   // 개발포트 8080
 app.use('/static', express.static(path.join(__dirname, 'static')));
 app.use(bodyParser.urlencoded({extended:true}));
 
+//session
+app.use(session({
+    secret: 'oraclejava',
+    store: MongoStore.create({ mongoUrl: 'mongodb://127.0.0.1/session'})
+}));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-
+const loginCheck = function(req, res, next) {
+    if (req.session.user) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
+}
 
 app.use('/', indexRouter);
-app.use('/admin/users', userRouter);
-app.use('/admin/blogs', blogRouter);
+app.use('/login', loginRouter);
+app.use('/admin/users', loginCheck, userRouter);
+app.use('/admin/blogs', loginCheck, blogRouter);
 app.use('/api/users', userRestRouter);
 
 
