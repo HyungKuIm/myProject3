@@ -9,8 +9,9 @@
 </head>
 <body>
     <h2>로그인</h2>
+    <p class="caution"><%= (locals.error) ? error : '' %></p>
     <form action="/login" method="post">
-        <input type="text" name="userid" placeholder="User ID"/> <br/>
+        <input type="text" name="userId" placeholder="User ID"/> <br/>
         <input type="password" name="password" placeholder="Password"/> <br/>
         <button type="submit">로그인</button>
     </form>

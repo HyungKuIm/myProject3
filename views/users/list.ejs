@@ -8,6 +8,7 @@
     <title>user list</title>
 </head>
 <body>
+<%- include('../partial/header') %>
     <div>
         <a href="/users/add">사용자 추가</a>
     </div>
@@ -15,7 +16,7 @@
         <% for(var user of content) { %>
         <tr>
             <th><%= user._id %></th>
-            <td><a href="/users/<%=user._id%>"><%= user.name %></a></td>
+            <td><a href="/admin/users/<%=user._id%>"><%= user.name %></a></td>
             <td><%= user.age %></td>
         </tr>
         <% } %>

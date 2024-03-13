@@ -3,11 +3,12 @@ import path from 'path';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import indexRouter from './routes/index.js';
-import userRouter from './routes/users.js';
+import userRouter from './routes/admin/users.js';
 import userRestRouter from './routes/userRest.js';
-import blogRouter from './routes/blogs.js';
+import blogRouter from './routes/admin/blogs.js';
 import blogRestRouter from './routes/blogRest.js';
 import loginRouter from './routes/login.js';
+import homeRouter from './routes/admin/home.js';
 
 import session from "express-session";
 import MongoStore from "connect-mongo";
@@ -48,7 +49,8 @@ const loginCheck = function(req, res, next) {
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/admin/users', loginCheck, userRouter);
-app.use('/admin/blogs', blogRouter);
+app.use('/admin/', loginCheck, homeRouter);
+app.use('/admin/blogs', loginCheck, blogRouter);
 app.use('/api/blogs', blogRestRouter);
 app.use('/api/users', userRestRouter);
 

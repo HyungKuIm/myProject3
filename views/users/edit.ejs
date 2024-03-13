@@ -8,6 +8,7 @@
     <title>user edit</title>
 </head>
 <body>
+<%- include('../partial/header') %>
 <form action="/users/edit/<%= content._id%>" method="post">
     <div>
         <label for="name">이름</label>

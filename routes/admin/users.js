@@ -1,6 +1,6 @@
 import express from "express";
 import path from "path";
-import User from "../schemas/user.js";
+import User from "../../schemas/user.js";
 
 const router = express.Router();
 

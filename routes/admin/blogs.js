@@ -1,9 +1,9 @@
 import express from "express";
-import template from "../template.js";
+import template from "../../template.js";
 import fs from "fs";
 import path from "path";
 import multer from "multer";
-import Blog from "../schemas/blog.js";
+import Blog from "../../schemas/blog.js";
 
 const router = express.Router();
 
