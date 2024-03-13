@@ -6,6 +6,7 @@ import indexRouter from './routes/index.js';
 import userRouter from './routes/users.js';
 import userRestRouter from './routes/userRest.js';
 import blogRouter from './routes/blogs.js';
+import blogRestRouter from './routes/blogRest.js';
 import loginRouter from './routes/login.js';
 
 import session from "express-session";
@@ -47,7 +48,8 @@ const loginCheck = function(req, res, next) {
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/admin/users', loginCheck, userRouter);
-app.use('/admin/blogs', loginCheck, blogRouter);
+app.use('/admin/blogs', blogRouter);
+app.use('/api/blogs', blogRestRouter);
 app.use('/api/users', userRestRouter);
 
 

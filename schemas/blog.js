@@ -11,7 +11,11 @@ const blogSchema = new mongoose.Schema({
     },
     thumbnailImg: {
       data: Buffer,
-      contentType: String
+      contentType: String,
+
+    },
+    thumbnailImgBase64String: {
+      type: String,
     },
     createdAt: {
         type: Date,
