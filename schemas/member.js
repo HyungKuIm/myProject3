@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 const memberSchema = new mongoose.Schema({
     userId: {
         type: String,
-        required: true
+        required: true,
+        unique: true,
     },
     password: {
         type: String,
